@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-preview",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "N8N community node \u2014 Preview Node for inline image/video/JSON previews on the canvas (Weavy AI / ComfyUI style)",
   "keywords": [
     "n8n-community-node-package",

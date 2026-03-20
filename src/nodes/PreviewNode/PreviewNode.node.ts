@@ -85,6 +85,34 @@ export class PreviewNode implements INodeType {
         default: true,
         description: 'Whether to automatically expand node on canvas when preview is ready',
       },
+      {
+        displayName: 'Grid Layout',
+        name: 'gridLayout',
+        type: 'options',
+        options: [
+          { name: 'Auto (2-col when ≥2 images)', value: 'auto' },
+          { name: '1 Column', value: '1' },
+          { name: '2 Columns', value: '2' },
+          { name: '3 Columns', value: '3' },
+        ],
+        default: 'auto',
+        description: 'Number of columns in the preview grid',
+      },
+      {
+        displayName: 'Caption Template',
+        name: 'captionTemplate',
+        type: 'string',
+        default: '',
+        placeholder: 'Variant {{$index+1}} — {{fileName}}',
+        description: 'Optional caption below each preview item. Supports {{$index}}, {{$index+1}}, {{fileName}}, {{fileSize}}, {{mimeType}}',
+      },
+      {
+        displayName: 'Show Dimensions',
+        name: 'showDimensions',
+        type: 'boolean',
+        default: true,
+        description: 'Whether to show pixel dimensions overlay on image previews',
+      },
     ],
   };
 
