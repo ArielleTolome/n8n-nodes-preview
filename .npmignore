@@ -1,0 +1,15 @@
+# Source files (dist/ is included via "files" in package.json)
+src/
+.github/
+tsconfig.json
+eslint.config.js
+*.map
+
+# Development
+*.tgz
+node_modules/
+.env
+.env.*
+
+# Docs that don't need to ship with the package
+CONTRIBUTING.md

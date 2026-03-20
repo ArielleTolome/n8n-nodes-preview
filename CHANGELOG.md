@@ -2,6 +2,18 @@
 
 All notable changes to `n8n-nodes-preview` are documented here.
 
+## [0.4.0] — 2026-03-20
+
+### Added
+- `.npmignore` — excludes `src/`, `.github/`, `tsconfig.json`, `eslint.config.js`, `*.map`, `*.tgz` from npm publish
+- Comprehensive README install section: Community Nodes UI (Method 1) + Docker manual install (Method 2) + npm link dev (Method 3)
+- `npm pack --dry-run` verification: 11 files, ~5KB package
+
+### Notes
+- Package is ready for `npm publish` — do NOT publish until explicitly requested
+
+---
+
 ## [0.3.0] — 2026-03-20
 
 ### Added

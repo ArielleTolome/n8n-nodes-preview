@@ -23,14 +23,20 @@ Connect a **Preview** node after any node that produces binary output (images, v
 
 ## Installation
 
-### Via N8N Community Nodes (recommended)
+### Method 1: N8N Community Nodes UI (cloud & self-hosted with internet access)
 
 1. Open your N8N instance
-2. **Settings → Community Nodes → Install**
-3. Enter: `n8n-nodes-preview`
-4. Click Install
+2. Go to **Settings → Community Nodes**
+3. Click **Install**
+4. Enter: `n8n-nodes-preview`
+5. Click **Install** and wait for it to complete
+6. Restart N8N if prompted
 
-### Manual install for self-hosted N8N (Docker)
+> ⚠️ The Community Nodes UI requires N8N to have outbound npm registry access.
+
+---
+
+### Method 2: Manual install for self-hosted N8N (Docker)
 
 ```bash
 # 1. Build the package locally (or download from GitHub releases)
@@ -56,6 +62,21 @@ docker logs n8n 2>&1 | tail -20
 ```
 
 > **Tip:** After each upgrade, repeat steps 2–5 with the new tarball.
+
+---
+
+### Method 3: npm link (local development)
+
+```bash
+git clone https://github.com/ArielleTolome/n8n-nodes-preview
+cd n8n-nodes-preview
+npm install && npm run build
+
+# In your local N8N nodes directory:
+cd ~/.n8n/nodes
+npm install /path/to/n8n-nodes-preview
+# Restart N8N
+```
 
 ---
 
