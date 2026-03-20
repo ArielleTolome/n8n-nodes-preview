@@ -136,7 +136,41 @@ Both repos must be used together. This package registers the node type; the inje
 
 ---
 
+## Node Properties (v0.5.x)
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| Label | string | — | Optional label shown on canvas preview card |
+| Preview Size | options | medium | small/medium/large/full |
+| Show for Item Index | number | 0 | Which item to preview (-1 = all) |
+| Pass Through Data | boolean | true | Pass input unchanged to next node |
+| Max Items to Preview | number | 5 | Cap 1–50 |
+| Show Filename | boolean | true | Show binary filename below preview |
+| Auto Expand on Canvas | boolean | true | Auto-expand node when preview ready |
+| Grid Layout | options | auto | auto/1/2/3 columns |
+| Caption Template | string | — | `{{$index+1}}`, `{{fileName}}`, `{{fileSize}}`, `{{mimeType}}` |
+| Show Dimensions | boolean | true | Pixel dimension overlay on images |
+
+### Caption Template Examples
+```
+Variant {{$index+1}} — {{fileName}}
+{{fileName}} ({{fileSize}}) • {{mimeType}}
+Image {{$index+1}} of your batch
+```
+
+---
+
 ## Changelog
+
+### v0.5.1
+- Test coverage for gridLayout, captionTemplate, showDimensions (10 tests total)
+- README: documented new properties
+
+### v0.5.0
+- **Grid Layout**: override injector's auto grid with 1/2/3 explicit columns
+- **Caption Template**: per-item captions with template variable substitution
+- **Show Dimensions**: toggle pixel dimension overlay on image previews
+- Requires injector.js v2.8.0+
 
 ### v0.2.0
 - Added `maxItems` property — cap previews to 1-50 items (default 5)

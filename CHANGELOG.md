@@ -2,6 +2,29 @@
 
 All notable changes to `n8n-nodes-preview` are documented here.
 
+## [0.5.1] — 2026-03-20
+
+### Added
+- Jest tests for `gridLayout`, `captionTemplate`, `showDimensions` properties (10 total tests)
+- README: documented new v0.5.0 properties with usage examples
+
+### Fixed
+- No functional changes; test + docs release only
+
+---
+
+## [0.5.0] — 2026-03-20
+
+### Added
+- **Grid Layout** property: override injector grid with 1, 2, or 3 explicit columns (auto = default)
+- **Caption Template** property: text template with `{{$index}}`, `{{$index+1}}`, `{{fileName}}`, `{{fileSize}}`, `{{mimeType}}` substitution
+- **Show Dimensions** property: toggle pixel dimension overlay on image previews (default: true)
+
+### Notes
+- Requires injector.js v2.8.0+ to read new params
+
+---
+
 ## [0.4.0] — 2026-03-20
 
 ### Added

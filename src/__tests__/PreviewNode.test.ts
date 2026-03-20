@@ -49,6 +49,33 @@ describe('PreviewNode', () => {
       expect(propNames).toContain('showFilename');
       expect(propNames).toContain('autoExpand');
     });
+
+    it('has gridLayout property with correct options', () => {
+      const prop = node.description.properties.find(p => p.name === 'gridLayout');
+      expect(prop).toBeDefined();
+      expect(prop?.type).toBe('options');
+      expect(prop?.default).toBe('auto');
+      const opts = (prop as { options?: { value: string }[] })?.options || [];
+      const values = opts.map((o: { value: string }) => o.value);
+      expect(values).toContain('auto');
+      expect(values).toContain('1');
+      expect(values).toContain('2');
+      expect(values).toContain('3');
+    });
+
+    it('has captionTemplate property as string', () => {
+      const prop = node.description.properties.find(p => p.name === 'captionTemplate');
+      expect(prop).toBeDefined();
+      expect(prop?.type).toBe('string');
+      expect(prop?.default).toBe('');
+    });
+
+    it('has showDimensions property as boolean defaulting to true', () => {
+      const prop = node.description.properties.find(p => p.name === 'showDimensions');
+      expect(prop).toBeDefined();
+      expect(prop?.type).toBe('boolean');
+      expect(prop?.default).toBe(true);
+    });
   });
 
   describe('execute()', () => {
