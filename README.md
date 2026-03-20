@@ -125,6 +125,17 @@ The Preview node itself is a pure passthrough — zero transformation, zero late
 
 ---
 
+## Related Projects
+
+| Repo | Description |
+|---|---|
+| **[n8n-nodes-preview](https://github.com/ArielleTolome/n8n-nodes-preview)** | ← This repo — N8N community node package |
+| **[n8n-node-preview](https://github.com/ArielleTolome/n8n-node-preview)** | Injector.js + nginx configs — canvas rendering engine |
+
+Both repos must be used together. This package registers the node type; the injector does the visual rendering.
+
+---
+
 ## Changelog
 
 ### v0.2.0
