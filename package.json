@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-preview",
   "version": "0.4.0",
-  "description": "N8N community node — Preview Node for inline image/video/JSON previews on the canvas (Weavy AI / ComfyUI style)",
+  "description": "N8N community node \u2014 Preview Node for inline image/video/JSON previews on the canvas (Weavy AI / ComfyUI style)",
   "keywords": [
     "n8n-community-node-package",
     "n8n",
@@ -28,7 +28,8 @@
     "build": "tsc && cp -r src/nodes/PreviewNode/*.svg dist/nodes/PreviewNode/ 2>/dev/null || true",
     "dev": "tsc --watch",
     "lint": "eslint src --ext .ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "jest"
   },
   "files": [
     "dist"
@@ -41,11 +42,14 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^18.19.130",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
     "eslint": "^10.0.3",
+    "jest": "^30.3.0",
     "n8n-workflow": "^2.13.0",
+    "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
