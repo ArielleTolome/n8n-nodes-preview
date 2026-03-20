@@ -84,6 +84,9 @@ See the [n8n-node-preview](https://github.com/ArielleTolome/n8n-node-preview) re
 | **Preview Size** | small (160px) / medium (220px) / large (300px) / full |
 | **Show for Item Index** | Which item to preview (0 = first, -1 = all) |
 | **Pass Through Data** | Pass data to next node (default: on) |
+| **Max Items to Preview** | Cap number of previews shown (1-50, default 5) |
+| **Show Filename** | Show binary filename below each preview (default: on) |
+| **Auto Expand on Canvas** | Expand node card automatically when preview is ready (default: on) |
 
 ---
 
@@ -102,6 +105,12 @@ The Preview node itself is a pure passthrough — zero transformation, zero late
 ---
 
 ## Changelog
+
+### v0.2.0
+- Added `maxItems` property — cap previews to 1-50 items (default 5)
+- Added `showFilename` property — toggle filename display below previews (default true)
+- Added `autoExpand` property — auto-expand node on canvas when preview ready (default true)
+- Requires injector.js v2.2.0+ to use workflow params
 
 ### v0.1.1
 - Added comprehensive Docker install instructions to README

@@ -60,6 +60,31 @@ export class PreviewNode implements INodeType {
         description:
           'Whether to pass the input data unchanged to the next node. Disable to use this as a terminal preview step.',
       },
+      {
+        displayName: 'Max Items to Preview',
+        name: 'maxItems',
+        type: 'number',
+        typeOptions: {
+          minValue: 1,
+          maxValue: 50,
+        },
+        default: 5,
+        description: 'Maximum number of previews to show (1-50)',
+      },
+      {
+        displayName: 'Show Filename',
+        name: 'showFilename',
+        type: 'boolean',
+        default: true,
+        description: 'Whether to show binary filename below each preview',
+      },
+      {
+        displayName: 'Auto Expand on Canvas',
+        name: 'autoExpand',
+        type: 'boolean',
+        default: true,
+        description: 'Whether to automatically expand node on canvas when preview is ready',
+      },
     ],
   };
 
