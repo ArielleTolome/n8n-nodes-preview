@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify dist output
+        run: |
+          echo "Checking dist/nodes/PreviewNode/PreviewNode.node.js..."
+          test -f dist/nodes/PreviewNode/PreviewNode.node.js || (echo "ERROR: dist file missing!" && exit 1)
+          echo "✅ dist/nodes/PreviewNode/PreviewNode.node.js exists"
+          echo "Checking dist/index.js..."
+          test -f dist/index.js || (echo "ERROR: dist/index.js missing!" && exit 1)
+          echo "✅ dist/index.js exists"
+          echo "Checking n8n field in package.json..."
+          node -e "const p = require('./package.json'); if (!p.n8n || !p.n8n.nodes || !p.n8n.nodes.length) { process.exit(1); } console.log('✅ n8n nodes field:', p.n8n.nodes);"
+
+      - name: Pack (dry run)
+        run: npm pack --dry-run

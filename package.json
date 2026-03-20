@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-preview",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "N8N community node — Preview Node for inline image/video/JSON previews on the canvas (Weavy AI / ComfyUI style)",
   "keywords": [
     "n8n-community-node-package",
@@ -42,6 +42,9 @@
   },
   "devDependencies": {
     "@types/node": "^18.19.130",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.0.3",
     "n8n-workflow": "^2.13.0",
     "typescript": "^5.9.3"
   },
