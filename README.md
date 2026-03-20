@@ -30,14 +30,32 @@ Connect a **Preview** node after any node that produces binary output (images, v
 3. Enter: `n8n-nodes-preview`
 4. Click Install
 
-### Manual (self-hosted)
+### Manual install for self-hosted N8N (Docker)
 
 ```bash
-# SSH into your N8N server
-docker exec -it n8n sh
-npm install -g n8n-nodes-preview
-# Restart N8N
+# 1. Build the package locally (or download from GitHub releases)
+git clone https://github.com/ArielleTolome/n8n-nodes-preview
+cd n8n-nodes-preview
+npm install
+npm run build
+npm pack    # produces n8n-nodes-preview-X.Y.Z.tgz
+
+# 2. Copy the tarball to your server
+scp n8n-nodes-preview-*.tgz root@YOUR_SERVER:/tmp/
+
+# 3. Install inside the n8n Docker container
+ssh root@YOUR_SERVER
+docker exec n8n sh -c 'mkdir -p /home/node/.n8n/nodes && cd /home/node/.n8n/nodes && npm install /tmp/n8n-nodes-preview-*.tgz'
+
+# 4. Restart n8n to load the new node
+docker restart n8n
+
+# 5. Verify the node is loaded (check container logs)
+docker logs n8n 2>&1 | tail -20
+# You should see "Editor is now accessible" — the node is available in the palette
 ```
+
+> **Tip:** After each upgrade, repeat steps 2–5 with the new tarball.
 
 ---
 
@@ -84,6 +102,10 @@ The Preview node itself is a pure passthrough — zero transformation, zero late
 ---
 
 ## Changelog
+
+### v0.1.1
+- Added comprehensive Docker install instructions to README
+- Confirmed install in Docker container on pigeonfi.com N8N instance
 
 ### v0.1.0
 - Initial release — Preview node with label, size, item index, passthrough options
