@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <rect width="60" height="60" rx="12" fill="#ff9800"/>
+  <!-- Eye outline -->
+  <path d="M30 18C18 18 10 30 10 30C10 30 18 42 30 42C42 42 50 30 50 30C50 30 42 18 30 18Z"
+        stroke="white" stroke-width="3" stroke-linejoin="round" fill="none"/>
+  <!-- Pupil -->
+  <circle cx="30" cy="30" r="7" fill="white"/>
+  <circle cx="30" cy="30" r="4" fill="#ff9800"/>
+  <!-- Image icon hint — bottom right corner -->
+  <rect x="36" y="36" width="14" height="11" rx="2" fill="white" opacity="0.9"/>
+  <polyline points="36,47 40,42 43,45 46,41 50,47" stroke="#ff9800" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+  <circle cx="39.5" cy="40" r="1.5" fill="#ff9800"/>
+</svg>
